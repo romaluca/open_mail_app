@@ -8,7 +8,6 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 
-/** OpenMailAppPlugin */
 public class OpenMailAppPlugin implements MethodCallHandler {
   private final Context context;
 
@@ -16,7 +15,6 @@ public class OpenMailAppPlugin implements MethodCallHandler {
     this.context = context;
   }
 
-  /** Plugin registration. */
   public static void registerWith(Registrar registrar) {
     final MethodChannel channel = new MethodChannel(registrar.messenger(), "com.shuttertop.open_mail_app");
     channel.setMethodCallHandler(new OpenMailAppPlugin(registrar.context()));
@@ -25,28 +23,22 @@ public class OpenMailAppPlugin implements MethodCallHandler {
   @Override
   public void onMethodCall(MethodCall call, Result result) {
     if (call.method.equals("openMailApp")) {
-      boolean ret = openDefaultMailApp();
-
-      if (ret) {
-        result.success(true);
-      } else {
-        result.error("UNAVAILABLE", "Cannot open mail app.", null);
-      }
+      openMailApp(result);
     }
     else {
       result.notImplemented();
     }
   }
 
-  private boolean openDefaultMailApp() {
+  private boolean openMailApp(Result result) {
     try {
       Intent intent = new Intent(Intent.ACTION_MAIN);
       intent.addCategory(Intent.CATEGORY_APP_EMAIL);
       context.startActivity(intent);
-      return true;
+      result.success(true);
     }
     catch (Exception ex){
-      return false;
+      result.error("UNAVAILABLE", "Cannot open mail app." + ex.getMessage(), ex);
     }
   }
 }
