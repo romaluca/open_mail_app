@@ -1,7 +1,8 @@
 name: open_mail_app
 description: Flutter plugin for opening mail app
-version: 0.0.4
+version: 0.0.5
 author:
+  - Luca Romagnoli
 homepage:
 
 environment:
