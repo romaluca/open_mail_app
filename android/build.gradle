@@ -1,3 +1,5 @@
+package android
+
 group 'com.shuttertop.open_mail_app'
 version '1.0-SNAPSHOT'
 
@@ -8,7 +10,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.4.1'
     }
 }
 

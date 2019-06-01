@@ -30,7 +30,7 @@ public class OpenMailAppPlugin implements MethodCallHandler {
     }
   }
 
-  private boolean openMailApp(Result result) {
+  private void openMailApp(Result result) {
     try {
       Intent intent = new Intent(Intent.ACTION_MAIN);
       intent.addCategory(Intent.CATEGORY_APP_EMAIL);
@@ -38,7 +38,7 @@ public class OpenMailAppPlugin implements MethodCallHandler {
       result.success(true);
     }
     catch (Exception ex){
-      result.error("UNAVAILABLE", "Cannot open mail app." + ex.getMessage(), ex);
+      result.error("UNAVAILABLE", "Cannot open mail app: " + ex.getMessage(), ex);
     }
   }
 }

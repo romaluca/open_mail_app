@@ -10,7 +10,7 @@ class OpenMailApp {
     try {
       return await _channel.invokeMethod('openMailApp');
     } on PlatformException catch (e) {
-      print("Error en openDefaultMailApp: " + e.message);
+      print("Error openMailApp: " + e.message);
     }
     return false;
   }
