@@ -34,6 +34,7 @@ public class OpenMailAppPlugin implements MethodCallHandler {
     try {
       Intent intent = new Intent(Intent.ACTION_MAIN);
       intent.addCategory(Intent.CATEGORY_APP_EMAIL);
+      intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
       context.startActivity(intent);
       result.success(true);
     }
