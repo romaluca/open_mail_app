@@ -17,7 +17,7 @@
                                    message:@"Cannot open mail app."
                                    details:nil]);
     } else {
-        result(@(opneOk));
+        result(@(ret));
     }
   } else {
     result(FlutterMethodNotImplemented);
