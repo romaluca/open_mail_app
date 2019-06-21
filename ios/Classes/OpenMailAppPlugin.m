@@ -24,7 +24,7 @@
   }
 }
 
-- (bool)openDefaultMailApp {
+- (bool)openMailApp {
     @try {
         NSURL* mailURL = [NSURL URLWithString:@"message://"];
         if ([[UIApplication sharedApplication] canOpenURL:mailURL]) {
